@@ -4,7 +4,8 @@ from engine.analyzer import MessageAnalyzer
 
 def main():
     # opening json file
-    with open("data/examples.json") as f:
+    # automatically closes when block ends
+    with open("data/examples.json", "r") as f:
         # messages is a list of the texts and their data
         messages = json.load(f)
         # for each message, create a message analyzer object and analyze it

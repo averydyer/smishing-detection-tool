@@ -1,5 +1,4 @@
 
-
 class MessageAnalyzer:
     def __init__(self, text="", unknown_contact=False, group_message=False, email=False):
         # store message in all lowercase
@@ -33,17 +32,26 @@ class MessageAnalyzer:
             if word in self.text:
                 self.add_flag(f"threatening language: {word}", 15)
 
+    """
+    # scans for possible malicious links
+    def detect_link(self):
+    # analyzes text data (unknown contact, group message, etc)
+    def check_data(self):
+    """
+
     # adds flag to list of flags and increases risk score based on the specific flag
     def add_flag(self, reason, score):
         self._flags.append(reason)
         self._risk_score += score
 
+    # get_flags and get_risk score allow retrieval of private data members
     def get_flags(self):
         return self._flags
 
     def get_risk_score(self):
         return self._risk_score
 
+    # runs all analysis members
     def run_analysis(self):
         self.detect_urgency()
         self.detect_pressure()
